@@ -1,10 +1,10 @@
 # README
 
-## creditcardテーブル
+## credit_cardsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
-|user|references|foreign_key: true|
+|user|references|foreign_key: true, index: ture|
 |customer_id|string|null: false|
 |card_id|string|null: false|
 
@@ -17,7 +17,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |nickname|string|null: false|
-|email|string|null: false, add_index unique: true|
+|email|string|null: false, index: ture, unique: true|
 |password|string|null: false|
 |first_name|string|null: false|
 |first_name_kana|string|null: false|
@@ -37,9 +37,8 @@
 - has_many :items
 - has_many :item_likes
 - has_many :liked_items, through: :item_likes, source: :item
-- has_many :item_comments
+- has_many :comments
 - has_many :trades
-- has_many :trade_comments
 - has_many :user_reviews
 - has_one :credit_card
 - belongs_to :prefecture, optional: true
@@ -49,14 +48,14 @@
 
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false, add index|
+|name|string|null: false, index: ture|
 |price|integer|null: false|
 |description|text|null: false|
-|condition|integer|null: false|
-|task|integer|null: false|
-|payer_delivery_expense|integer|null: false|
-|delivery_days|integer|null: false|
-|prefecture|string|null: false|
+|condition|integer|default: 0, null: false|
+|task|integer|default: 0, null: false|
+|payer_delivery_expense|integer|default: 0, null: false|
+|delivery_days|integer|default: 0, null: false|
+|prefecture_id|integer|null: false|
 |user|references|null: false, foreign_key: true|
 |category|references|null: false, foreign_key: true|
 |size|references|null: false, foreign_key: true|
@@ -69,7 +68,7 @@
 - belongs_to :prefecture
 - has_many :item_likes
 - has_many :liked_users, through: :items_likes, source: :user
-- has_many :item_comments
+- has_many :comments
 - has_one :trade
 
 
@@ -106,17 +105,19 @@
 - belongs_to :item
 
 
-## item_commentsテーブル
+## commentsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
 |content|string|null: false|
-|user|references|null: false, foreign_key: true|
-|item|references|null: false, foreign_key: true|
+|user|references|foreign_key: true|
+|commentable_type|string|index: true|
+|commentable_id|references|foreign_key: true, index: true|
 
 ### Association
 - belongs_to :user
 - belongs_to :item
+- belongs_to :trade
 
 
 ## categoriesテーブル
@@ -124,7 +125,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |name|string|null: false|
-|ancestry|string|null: false, add index|
+|ancestry|string|index: ture|
 
 ### Association
 - has_many :items
@@ -145,19 +146,6 @@
 - belongs_to :item
 
 
-## trade_commentsテーブル
-
-|Column|Type|Options|
-|------|----|-------|
-|content|string|null: false|
-|user|references|null: false, foreign_key: true|
-|trade|references|null: false, foreign_key: true|
-
-### Association
-- belongs_to :user
-- belongs_to :trade
-
-
 ## user_reviewsテーブル
 
 |Column|Type|Options|
@@ -170,3 +158,36 @@
 ### Association
 - belongs_to :user
 - belongs_to :trade
+
+
+## deliver_addressesテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|first_name|string|null: false|
+|first_name_kana|string|null: false|
+|last_name|string|null: false|
+|last_name_kana|string|null: false|
+|birth_date|string|null: false|
+|zipcode|string|null: false|
+|prefecture_id|integer|null: false|
+|city|string|null: false|
+|house_address|string|null: false|
+|building_name|string||
+|phone_number|string||
+
+### Association
+- belongs_to :user
+
+
+## sns_credentialsテーブル
+
+|Column|Type|Options|
+|------|----|-------|
+|user|references|foreign_key: true|
+|uid|string||
+|provider|string||
+
+### Association
+- belongs_to :user
