@@ -3,22 +3,23 @@ $(function () {
  * slideshow
  */
 
-  $('.main__slideshow').each(function () {
+  $(document).on('turbolinks:load', function (e) {
 
-    var $slides = $(this).find('img'),
-        slideCount = $slides.length,
-        currentIndex = 0;
+    $('.main__slideshow').each(function () {
+      var $slides = $(this).find('img'),
+          slideCount = $slides.length,
+          currentIndex = 0;
+      $slides.eq(currentIndex).fadeIn();
+      setInterval(showNextSlide,1000);
 
-    $slides.eq(currentIndex).fadeIn();
+      function showNextSlide () {
+        var nextIndex = (currentIndex + 1) % slideCount;
+        $slides.eq(currentIndex).fadeOut();
+        $slides.eq(nextIndex).fadeIn();
+        currentIndex = nextIndex;
+      }
+    });
 
-    setInterval(showNextSlide,1000);
-    
-    function showNextSlide () {
-      var nextIndex = (currentIndex + 1) % slideCount;
+  });
 
-      $slides.eq(currentIndex).fadeOut();
-      $slides.eq(nextIndex).fadeIn();
-      currentIndex = nextIndex;
-    }
-  }); 
 });
