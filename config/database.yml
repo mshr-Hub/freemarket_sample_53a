@@ -51,13 +51,13 @@ test:
 staging:
   <<: *default
   database: freemarket_sample_53a_staging
-  username: <%= Rails.application.credentials.db[:staging][:username] %>
-  password: <%= Rails.application.credentials.db[:staging][:password] %>
+  username: <%= Rails.application.credentials.db[:staging_username] %>
+  password: <%= Rails.application.credentials.db[:staging_password] %>
   socket: /var/lib/mysql/mysql.sock
 
 production:
   <<: *default
   database: freemarket_sample_53a_production
-  username: <%= Rails.application.credentials.db[:production][:username] %>
-  password: <%= Rails.application.credentials.db[:production][:password] %>
+  username: <%= Rails.application.credentials.db[:production_username] %>
+  password: <%= Rails.application.credentials.db[:production_password] %>
   socket: /var/lib/mysql/mysql.sock
