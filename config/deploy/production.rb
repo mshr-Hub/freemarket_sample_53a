@@ -1,7 +1,9 @@
+# 自分のec2インスタンスに紐付けたElasticIPに変更
 server '52.69.189.4', user: 'ec2-user', roles: %w{app db web}
 
 set :rails_env, "production"
 set :unicorn_rack_env, "production"
+# キーの名前はそのまま
 set :application, 'freemarket_sample_53a'
 set :ssh_options, auth_methods: ['publickey'],
                   keys: ['~/.ssh/freemarket_sample_53a.pem']

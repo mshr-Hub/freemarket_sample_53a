@@ -6,6 +6,7 @@ lock '3.11.0'
 # set :application, 'freemarket_sample_53a'
 
 # どのリポジトリからアプリをpullするかを指定する
+# 自分のリポジトリに修正
 set :repo_url,  'git@github.com:mshr-Hub/freemarket_sample_53a.git'
 
 # バージョンが変わっても共通で参照するディレクトリを指定
