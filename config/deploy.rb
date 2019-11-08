@@ -56,7 +56,7 @@ namespace :db do
   task :create do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
-        within current_path do
+        within release_path do
           execute :bundle, :exec, :rake, 'db:create'
         end
       end
@@ -69,7 +69,7 @@ namespace :db do
   task :drop do
     on roles(:db) do |host|
       with rails_env: fetch(:rails_env) do
-        within current_path do
+        within release_path do
           execute :bundle, :exec, :rake, 'db:drop'
         end
       end
