@@ -11,7 +11,7 @@ CarrierWave.configure do |config|
       region: 'ap-northeast-1',
       use_iam_profile: true
     }
-    config.fog_directory  = Rails.env.production? ? 'freemarket-sample-53a' : 'stg-freemarket-sample-53a'
+    config.fog_directory  = Rails.env.production? ? 'freemarket-sample-53a-mshr' : 'stg-freemarket-sample-53a'
     config.asset_host = "https://#{config.fog_directory}.s3-ap-northeast-1.amazonaws.com"
   else
     config.storage = :file
