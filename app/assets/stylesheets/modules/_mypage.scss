@@ -64,14 +64,15 @@
           display: inline-block;
           text-align: center;
           vertical-align: top;
+          cursor: pointer;
           &.active {
             background: $white;
-            a {
+            p {
               border-top: 2px solid $active_red;
             }
           }
         }
-        a {
+        p {
           position: relative;
           display: block;
           color: $black;
@@ -213,14 +214,15 @@
           display: inline-block;
           text-align: center;
           vertical-align: top;
+          cursor: pointer;
           &.active {
             background: $white;
-            a {
+            p {
               border-top: 2px solid $active_red;
             }
           }
         }
-        a {
+        p {
           position: relative;
           display: block;
           color: $black;
@@ -320,15 +322,25 @@
         }
         li {
           border-top: 1px solid $gray;
-        }
-        &__item {
           &.active {
+            a {
             background: $gray;
             font-weight: 600;
+            }
             .icon-arrow-right {
               color: $black;
             }
           }
+          &:hover {
+            a {
+              background-color: $gray;
+            }
+            .icon-arrow-right {
+              color: $black;
+            }
+          }
+        }
+        &__item {
           position: relative;
           display: block;
           max-height: 48px;

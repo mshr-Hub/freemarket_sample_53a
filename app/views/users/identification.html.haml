@@ -23,19 +23,21 @@
         %label
           お名前
         %p
-          浦島 太朗
+          = current_user.last_name
+          = current_user.first_name
 
       .identification__form__form-group
         %label
           お名前カナ
         %p
-          ウラシマ タロウ
+          = current_user.last_name_kana
+          = current_user.first_name_kana
 
       .identification__form__form-group
         %label
           生年月日
         %p
-          1999/9/9
+          = current_user.birth_date
 
       .identification__form__form-group
         %label
@@ -51,7 +53,7 @@
           任意
         .identification__form__form-group__select-wrap
           = fa_icon "chevron-down"
-          = f.select :prefecture, [["--", ""], ["北海道", "北海道"]], {}, {class: "identification__form__form-group__select-default"}
+          = f.collection_select :prefecture, Prefecture.all, :id, :name, {include_blank: "---", selected: "---"}, class: "identification__form__form-group__select-default", placeholder: "---"
 
       .identification__form__form-group
         %label
