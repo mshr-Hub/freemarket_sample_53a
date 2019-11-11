@@ -9,11 +9,11 @@
         %div
           評価
           %span.bold
-            0
+            = @user.user_reviews.length
         %div
           出品数
           %span.bold
-            0
+            = @user.items.length
 
   %section.tab-container-notification-todo
     %ul.tabs
@@ -30,7 +30,7 @@
     .tab-content
       %ul#notification_content.tab-content__items.tab-pane
         %li
-          = link_to root_path, class: "tab-content__items__item" do
+          = link_to "#", class: "tab-content__items__item" do
             %figure
               = image_tag "/mercari_profile.png", class: 'lazyloaded'
             .tab-content__items__item__body
@@ -42,7 +42,7 @@
                   1日前
             %i.icon-arrow-right
         %li
-          = link_to root_path, class: "tab-content__items__item" do
+          = link_to "#", class: "tab-content__items__item" do
             %figure
               = image_tag "/mercari_profile.png", class: 'lazyloaded'
             .tab-content__items__item__body
@@ -54,7 +54,7 @@
                   1日前
             %i.icon-arrow-right
         %li
-          = link_to root_path, class: "tab-content__items__item" do
+          = link_to "#", class: "tab-content__items__item" do
             %figure
               = image_tag "/mercari_profile.png", class: 'lazyloaded'
             .tab-content__items__item__body
@@ -66,7 +66,7 @@
                   4日前
             %i.icon-arrow-right
         %li
-          = link_to root_path, class: "tab-content__items__item" do
+          = link_to "#", class: "tab-content__items__item" do
             %figure
               = image_tag "/mercari_profile.png", class: 'lazyloaded'
             .tab-content__items__item__body
@@ -78,7 +78,7 @@
                   4日前
             %i.icon-arrow-right
         %li
-          = link_to root_path, class: "tab-content__items__item" do
+          = link_to "#", class: "tab-content__items__item" do
             %figure
               = image_tag "/mercari_profile.png", class: 'lazyloaded'
             .tab-content__items__item__body

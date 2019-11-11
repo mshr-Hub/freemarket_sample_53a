@@ -1,33 +1,33 @@
 $(function() {
 
-  // お知らせタブ
-  var notification_tab = $('#notification_tab');
-  // お知らせ内容
-  var notification_content = $('#notification_content');
-
-  // やることリストタブ
-  var todo_tab = $('#todo_tab');
-  // やることリスト内容
-  var todo_content = $('#todo_content');
-
-  // 取引中タブ
-  var trade_now_tab = $('#trade_now_tab');
-  // 取引中内容
-  var trade_now_content = $('#trade_now_content');
-
-  // 過去の取引タブ
-  var trade_old_tab = $('#trade_old_tab');
-  // 過去の取引内容
-  var trade_old_content = $('#trade_old_content');
-
   $(document).on('turbolinks:load', function(e) {
+
+    // お知らせタブ
+    var notification_tab = $('#notification_tab');
+    // お知らせ内容
+    var notification_content = $('#notification_content');
+
+    // やることリストタブ
+    var todo_tab = $('#todo_tab');
+    // やることリスト内容
+    var todo_content = $('#todo_content');
+
+    // 取引中タブ
+    var trade_now_tab = $('#trade_now_tab');
+    // 取引中内容
+    var trade_now_content = $('#trade_now_content');
+
+    // 過去の取引タブ
+    var trade_old_tab = $('#trade_old_tab');
+    // 過去の取引内容
+    var trade_old_content = $('#trade_old_content');
+
 
     // 画面ロード時にはお知らせと取引中をアクティブに
     notification_tab.addClass('active');
     notification_content.addClass('active');
     trade_now_tab.addClass('active');
     trade_now_content.addClass('active');
-
 
     // お知らせタブのクリック時にお知らせ部分をアクティブに
     notification_tab.on('click', function() {
@@ -61,6 +61,6 @@ $(function() {
       trade_now_content.removeClass('active');
     });
 
-
   });
+
 });
