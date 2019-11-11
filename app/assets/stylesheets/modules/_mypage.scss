@@ -64,14 +64,15 @@
           display: inline-block;
           text-align: center;
           vertical-align: top;
+          cursor: pointer;
           &.active {
             background: $white;
-            a {
+            p {
               border-top: 2px solid $active_red;
             }
           }
         }
-        a {
+        p {
           position: relative;
           display: block;
           color: $black;
@@ -213,14 +214,15 @@
           display: inline-block;
           text-align: center;
           vertical-align: top;
+          cursor: pointer;
           &.active {
             background: $white;
-            a {
+            p {
               border-top: 2px solid $active_red;
             }
           }
         }
-        a {
+        p {
           position: relative;
           display: block;
           color: $black;
