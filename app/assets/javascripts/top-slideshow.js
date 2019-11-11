@@ -1,21 +1,18 @@
 $(function () {
-/*
- * slideshow
- */
 
   $(document).on('turbolinks:load', function (e) {
 
     $('.main__slideshow').each(function () {
-      var $slides = $(this).find('img'),
-          slideCount = $slides.length,
+      var slides = $(this).find('img'),
+          slideCount = slides.length,
           currentIndex = 0;
-      $slides.eq(currentIndex).fadeIn();
+      slides.eq(currentIndex).fadeIn();
       setInterval(showNextSlide,5000);
 
       function showNextSlide () {
         var nextIndex = (currentIndex + 1) % slideCount;
-        $slides.eq(currentIndex).fadeOut();
-        $slides.eq(nextIndex).fadeIn();
+        slides.eq(currentIndex).fadeOut();
+        slides.eq(nextIndex).fadeIn();
         currentIndex = nextIndex;
       }
     });
