@@ -1,8 +1,8 @@
-.side
+.side{data: {user_id: "#{current_user.id}"}}
   %nav
     %ul.items
-      %li
-        = link_to current_user, class: "items__item active" do
+      %li#mypage_link
+        = link_to current_user, class: "items__item" do
           マイページ
           %i.icon-arrow-right
       %li
@@ -23,15 +23,15 @@
         = link_to new_item_path, class: "items__item" do
           出品する
           %i.icon-arrow-right
-      %li
+      %li#listing_link
         = link_to listing_user_path(current_user), class: "items__item" do
           出品した商品 - 出品中
           %i.icon-arrow-right
-      %li
+      %li#progress_link
         = link_to in_progress_user_path(current_user), class: "items__item" do
           出品した商品 - 取引中
           %i.icon-arrow-right
-      %li
+      %li#completed_link
         = link_to completed_user_path(current_user), class: "items__item" do
           出品した商品 - 売却済み
           %i.icon-arrow-right
@@ -75,15 +75,15 @@
     %h3.items-head.bold
       設定
     %ul.items
-      %li
+      %li#profile_link
         = link_to profile_user_path(current_user), class: "items__item" do
           プロフィール
           %i.icon-arrow-right
-      %li
+      %li#deliver_address_link
         = link_to user_deliver_address_path(current_user), class: "items__item" do
           発送元・お届け先住所変更
           %i.icon-arrow-right
-      %li
+      %li#credit_card_link
         = link_to user_credit_card_path(current_user), class: "items__item" do
           支払い方法
           %i.icon-arrow-right
@@ -91,7 +91,7 @@
         = link_to root_path, class: "items__item" do
           メール/パスワード
           %i.icon-arrow-right
-      %li
+      %li#identification_link
         = link_to identification_user_path(current_user), class: "items__item" do
           本人情報
           %i.icon-arrow-right
@@ -99,7 +99,7 @@
         = link_to root_path, class: "items__item" do
           電話番号の確認
           %i.icon-arrow-right
-      %li
+      %li#sign_out_link
         = link_to sign_out_path, class: "items__item" do
           ログアウト
           %i.icon-arrow-right

@@ -322,15 +322,25 @@
         }
         li {
           border-top: 1px solid $gray;
-        }
-        &__item {
           &.active {
+            a {
             background: $gray;
             font-weight: 600;
+            }
             .icon-arrow-right {
               color: $black;
             }
           }
+          &:hover {
+            a {
+              background-color: $gray;
+            }
+            .icon-arrow-right {
+              color: $black;
+            }
+          }
+        }
+        &__item {
           position: relative;
           display: block;
           max-height: 48px;
